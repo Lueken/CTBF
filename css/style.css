@@ -309,6 +309,7 @@ textarea {
     background: var(--grace-white);
     transform: skewY(-2deg);
     transform-origin: bottom left;
+    z-index: 10;
 }
 
 .hero-text {
@@ -1158,6 +1159,13 @@ textarea {
         gap: 2rem;
     }
 
+    .hero::after {
+        bottom: -40px; /* Reduced gap */
+        height: 60px; /* Shorter separator */
+        transform: skewY(-1deg); /* Less dramatic angle */
+        transform-origin: bottom left;
+    }
+
     .hero h1 {
         font-size: clamp(1.3rem, 5vw, 2.5rem);
         white-space: nowrap;
@@ -1336,6 +1344,13 @@ textarea {
         white-space: nowrap;
     }
 
+    .hero::after {
+        bottom: -30px; /* Even smaller gap */
+        height: 50px; /* Shorter separator */
+        transform: skewY(-0.5deg); /* Very subtle angle */
+        transform-origin: bottom left;
+    }
+
     .nav-links {
         gap: 1.5rem;
         padding: 1.5rem;
@@ -1443,6 +1458,13 @@ textarea {
           font-size: clamp(0.8rem, 8vw, 1.5rem);
           white-space: nowrap;
       }
+
+    .hero::after {
+        bottom: -20px;
+        height: 30px;
+        transform: none; /* No skew - straight separator */
+        border-radius: 0;
+    }
 }
 
 /* ==========================================================================

@@ -1,0 +1,521 @@
+/* About Page Specific Styles - about.css */
+/* Import base styles for navigation and common elements */
+@import url('style.css');
+
+/* About Page Specific Overrides and Additions */
+
+/* Hero Section Modifications for About Page */
+.hero {
+    min-height: 80vh; /* Shorter than homepage hero */
+    background: linear-gradient(135deg, var(--peace-cream) 30%, var(--gentle-mist) 100%);
+}
+
+.hero-text {
+    padding: 2rem 3rem 2rem 0;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Slightly smaller than homepage */
+}
+
+/* About Story Section */
+.about-story {
+    padding: 6rem 0;
+    background: var(--grace-white);
+}
+
+.about-content h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.5rem;
+    color: var(--deep-faith);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.story-intro {
+    font-size: 1.2rem;
+    color: var(--cross-brown);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.story-sections {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.story-section {
+    margin-bottom: 3rem;
+}
+
+.story-section h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.5rem;
+    color: var(--heavenly-blue);
+    margin-bottom: 1rem;
+}
+
+.story-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--cross-brown);
+}
+
+/* Impact Statistics */
+.impact-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--peace-cream);
+    border-radius: 15px;
+    min-width: 180px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--heavenly-blue);
+    font-family: 'Crimson Pro', serif;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--prayer-purple);
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+/* Mission Section */
+.mission-section {
+    padding: 6rem 0;
+    background: var(--peace-cream);
+    position: relative;
+}
+
+.mission-content h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.5rem;
+    color: var(--deep-faith);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.mission-statement {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.mission-statement blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--prayer-purple);
+    background: var(--grace-white);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 4px solid var(--heavenly-blue);
+    margin: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.mission-details {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mission-point {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--grace-white);
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.mission-point h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.4rem;
+    color: var(--heavenly-blue);
+    margin-bottom: 1rem;
+}
+
+.mission-point p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--cross-brown);
+    margin: 0;
+}
+
+/* Beliefs Section */
+.beliefs-section {
+    padding: 6rem 0;
+    background: var(--grace-white);
+}
+
+.beliefs-content h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.5rem;
+    color: var(--deep-faith);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.beliefs-intro {
+    font-size: 1.2rem;
+    color: var(--cross-brown);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+}
+
+.beliefs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.belief-card {
+    background: var(--peace-cream);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    border-top: 4px solid var(--accent-cyan);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.belief-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-top-color: var(--heavenly-blue);
+}
+
+.belief-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.belief-card h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.3rem;
+    color: var(--deep-faith);
+    margin-bottom: 1rem;
+}
+
+.belief-card p {
+    color: var(--cross-brown);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Gratitude Section */
+.gratitude-section {
+    padding: 6rem 0;
+    background: var(--prayer-purple);
+    color: var(--grace-white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.gratitude-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--prayer-purple) 0%, var(--heavenly-blue) 100%);
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.gratitude-content {
+    position: relative;
+    z-index: 2;
+}
+
+.gratitude-content h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.5rem;
+    color: var(--grace-white);
+    margin-bottom: 2rem;
+}
+
+.gratitude-message {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--warm-peach);
+    line-height: 1.6;
+}
+
+.support-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.support-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: left;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.support-card h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.4rem;
+    color: var(--grace-white);
+    margin-bottom: 1rem;
+}
+
+.support-card ul {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.support-card li {
+    color: var(--warm-peach);
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.support-card li::before {
+    content: "•";
+    color: var(--resurrection-gold);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Contact Footer */
+.contact-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 2rem;
+    margin-top: 3rem;
+}
+
+.contact-footer p {
+    color: var(--warm-peach);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Footer Enhancements for About Page */
+.footer {
+    margin-top: 0; /* Remove any top margin since it follows gratitude section */
+}
+
+.footer-content {
+    margin-bottom: 3rem;
+}
+
+.footer-section h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section p {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+    transition: color 0.3s ease;
+}
+
+.footer-bottom p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.footer-bottom p:last-of-type {
+    font-style: italic;
+    color: var(--warm-peach);
+}
+
+/* Social links styling in footer */
+.footer .social-links {
+    margin-top: 1.5rem;
+}
+
+/* Button Overrides for About Page */
+.gratitude-section .btn {
+    background: var(--grace-white);
+    color: var(--deep-faith);
+}
+
+.gratitude-section .btn:hover {
+    background: var(--warm-peach);
+    color: var(--grace-white);
+}
+
+.gratitude-section .btn-secondary {
+    background: transparent;
+    color: var(--grace-white);
+    border: 2px solid var(--grace-white);
+}
+
+.gratitude-section .btn-secondary:hover {
+    background: var(--grace-white);
+    color: var(--deep-faith);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        min-height: 70vh;
+        gap: 2rem;
+    }
+
+    .hero-text {
+        padding: 0;
+        order: 2;
+    }
+
+    .hero-visual {
+        order: 1;
+    }
+
+    .impact-stats {
+        gap: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-box {
+        min-width: 250px;
+    }
+
+    .beliefs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .support-options {
+        grid-template-columns: 1fr;
+    }
+
+    .story-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .mission-point {
+        padding: 1.5rem;
+    }
+
+    .about-content h2,
+    .mission-content h2,
+    .beliefs-content h2,
+    .gratitude-content h2 {
+        font-size: 2rem;
+    }
+
+    .mission-statement blockquote {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+    }
+
+    .story-intro,
+    .beliefs-intro,
+    .gratitude-message {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content h2,
+    .mission-content h2,
+    .beliefs-content h2,
+    .gratitude-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .story-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .belief-card,
+    .support-card,
+    .mission-point {
+        padding: 1.5rem;
+    }
+
+    .stat-box {
+        padding: 1rem;
+        min-width: 200px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .belief-icon {
+        font-size: 2rem;
+    }
+
+    /* Footer mobile styles */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Print Styles for About Page */
+@media print {
+    .gratitude-section {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    .gratitude-section::before {
+        display: none !important;
+    }
+
+    .support-card {
+        background: #fff !important;
+        border: 1px solid #ccc !important;
+        color: #000 !important;
+    }
+
+    .hero-visual {
+        display: none !important;
+    }
+
+    .belief-card,
+    .mission-point {
+        page-break-inside: avoid;
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+    }
+}

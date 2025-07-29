@@ -1,6 +1,6 @@
 /* About Page Specific Styles - about.css */
 /* Import base styles for navigation and common elements */
-@import url('style.css');
+@import url('../css/style.css');
 
 /* About Page Specific Overrides and Additions */
 
@@ -16,6 +16,54 @@
 
 .hero h1 {
     font-size: clamp(2.5rem, 5vw, 4rem); /* Slightly smaller than homepage */
+}
+
+/* Hero subtitle link styling */
+.hero-subtitle-link {
+    display: block;
+    text-decoration: none;
+    color: var(--cross-brown);
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    padding: 0.5rem 0;
+}
+
+.hero-subtitle-link:hover {
+    color: var(--heavenly-blue);
+    transform: translateY(-2px);
+}
+
+/* Add a subtle underline effect */
+.hero-subtitle-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    height: 2px;
+    background: var(--heavenly-blue);
+    transition: width 0.3s ease;
+}
+
+.hero-subtitle-link:hover::after {
+    width: 100%;
+    background: var(--heavenly-blue);
+}
+
+/* Optional: Add a play icon to indicate it's a video */
+.hero-subtitle-link::before {
+    content: '▶ ';
+    color: var(--heavenly-blue);
+    font-size: 1em;
+    margin-right: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.hero-subtitle-link:hover::before {
+    color: var(--accent-cyan);
+    transform: scale(1.1);
 }
 
 /* About Story Section */

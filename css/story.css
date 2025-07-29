@@ -1,0 +1,814 @@
+/* Story Page Specific Styles - story.css */
+/* Import base styles for navigation and common elements */
+@import url('style.css');
+
+/* Story Page Specific Overrides and Additions */
+
+/* Hero Section Modifications for Story Page */
+.hero {
+    min-height: 90vh;
+    background: linear-gradient(135deg, var(--peace-cream) 20%, var(--gentle-mist) 80%);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* Hero subtitle link styling */
+.hero-subtitle-link {
+    display: block;
+    text-decoration: none;
+    color: var(--cross-brown);
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    padding: 0.5rem 0;
+}
+
+.hero-subtitle-link:hover {
+    color: var(--heavenly-blue);
+    transform: translateY(-2px);
+}
+
+/* Add a subtle underline effect */
+.hero-subtitle-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    height: 2px;
+    background: var(--heavenly-blue);
+    transition: width 0.3s ease;
+}
+
+.hero-subtitle-link:hover::after {
+    width: 100%;
+    background: var(--heavenly-blue);
+}
+
+/* Optional: Add a play icon to indicate it's a video */
+.hero-subtitle-link::before {
+    content: '▶ ';
+    color: var(--heavenly-blue);
+    font-size: 1em;
+    margin-right: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.hero-subtitle-link:hover::before {
+    color: var(--accent-cyan);
+    transform: scale(1.1);
+}
+
+/* Override the main style.css hero divider */
+.hero::after {
+    display: none;
+}
+
+/* Story-specific hero divider */
+.hero {
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: var(--peace-cream); /* Matches discovery section background */
+    transform: skewY(2deg);
+    transform-origin: bottom left;
+    z-index: 10;
+}
+
+/*!* Story Introduction Section *!*/
+/*.story-intro {*/
+/*    padding: 4rem 0;*/
+/*    background: var(--grace-white);*/
+/*    text-align: center;*/
+/*    position: relative;*/
+/*}*/
+
+/*.story-intro::after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    bottom: -80px;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    height: 80px;*/
+/*    background: var(--peace-cream);*/
+/*    transform: skewY(2deg);*/
+/*    transform-origin: bottom right;*/
+/*    z-index: 10;*/
+/*}*/
+
+/*.intro-content {*/
+/*    max-width: 800px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.intro-text {*/
+/*    font-size: 1.3rem;*/
+/*    color: var(--prayer-purple);*/
+/*    font-style: italic;*/
+/*    line-height: 1.7;*/
+/*    font-weight: 400;*/
+/*    background: var(--peace-cream);*/
+/*    padding: 2rem;*/
+/*    border-radius: 15px;*/
+/*    border-left: 4px solid var(--heavenly-blue);*/
+/*    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);*/
+/*}*/
+
+/* Story Chapter Sections */
+.story-chapter {
+    padding: 8rem 0;
+    position: relative;
+}
+
+/* Alternating backgrounds for visual rhythm */
+.discovery-chapter {
+    background: var(--peace-cream);
+}
+
+.grace-chapter {
+    background: var(--grace-white);
+}
+
+.journey-chapter {
+    background: var(--peace-cream);
+}
+
+.restoration-chapter {
+    background: var(--grace-white);
+}
+
+.today-chapter {
+    background: var(--peace-cream);
+}
+
+/* Chapter Layout System */
+.chapter-layout {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    gap: 6rem;
+    align-items: start;
+}
+
+.chapter-layout.reverse {
+    grid-template-columns: 4fr 2fr;
+}
+
+/* Chapter Labels */
+.chapter-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Crimson Pro', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    opacity: 0.2;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+    text-align: center;
+}
+
+.discovery-chapter .chapter-label {
+    color: var(--cross-brown);
+}
+
+.grace-chapter .chapter-label {
+    color: var(--heavenly-blue);
+}
+
+.journey-chapter .chapter-label {
+    color: var(--prayer-purple);
+}
+
+.restoration-chapter .chapter-label {
+    color: var(--resurrection-gold);
+}
+
+.today-chapter .chapter-label {
+    color: var(--accent-cyan);
+}
+
+/* Chapter Headers */
+.chapter-header {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.chapter-number {
+    display: inline-block;
+    background: var(--gentle-mist);
+    color: var(--prayer-purple);
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.chapter-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--deep-faith);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.chapter-subtitle {
+    font-size: 1.2rem;
+    color: var(--cross-brown);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Story Text Styling */
+.story-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--cross-brown);
+    margin-bottom: 3rem;
+}
+
+.story-text p {
+    margin-bottom: 1.5rem;
+}
+
+.story-text strong {
+    color: var(--deep-faith);
+    font-weight: 600;
+}
+
+/* Impact Box for Discovery Section */
+.impact-box {
+    background: var(--grace-white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.impact-stat {
+    display: inline-block;
+    text-align: center;
+    margin-right: 3rem;
+    margin-bottom: 2rem;
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Crimson Pro', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--heavenly-blue);
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--prayer-purple);
+    font-weight: 500;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.impact-quote {
+    border-left: 4px solid var(--cross-brown);
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+}
+
+.impact-quote p {
+    font-style: italic;
+    color: var(--prayer-purple);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Grace Testimony Box */
+.grace-testimony {
+    background: var(--peace-cream);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.grace-testimony blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--prayer-purple);
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--heavenly-blue);
+    padding-left: 1.5rem;
+}
+
+.testimony-note {
+    font-size: 1rem;
+    color: var(--cross-brown);
+    margin: 0;
+}
+
+/* Journey Timeline */
+.journey-timeline {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.journey-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gentle-mist);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 2rem;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 12px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--heavenly-blue);
+    border-radius: 50%;
+    border: 4px solid var(--grace-white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h4 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.2rem;
+    color: var(--deep-faith);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    color: var(--cross-brown);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Restoration Declaration */
+.restoration-declaration {
+    margin-top: 2rem;
+}
+
+.declaration-box {
+    background: var(--prayer-purple);
+    color: var(--grace-white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.declaration-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--prayer-purple) 0%, var(--heavenly-blue) 100%);
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.declaration-box > * {
+    position: relative;
+    z-index: 2;
+}
+
+.declaration-box h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.5rem;
+    color: var(--grace-white);
+    margin-bottom: 1rem;
+}
+
+.declaration-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.forgiveness-moment {
+    font-weight: 600;
+    color: var(--resurrection-gold) !important;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    padding-top: 1rem !important;
+    margin-top: 1.5rem !important;
+}
+
+/* Ministry Stats for Today Section */
+.ministry-stats {
+    margin-top: 2rem;
+}
+
+.ministry-box {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.ministry-stat {
+    text-align: center;
+    background: var(--grace-white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    min-width: 180px;
+}
+
+.ministry-stat .stat-number {
+    font-size: 4rem;
+    color: var(--heavenly-blue);
+}
+
+.ministry-declaration {
+    background: var(--grace-white);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.ministry-declaration h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.4rem;
+    color: var(--heavenly-blue);
+    margin-bottom: 1rem;
+}
+
+.ministry-declaration p {
+    font-size: 1.1rem;
+    color: var(--cross-brown);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.god-is-good {
+    color: var(--prayer-purple) !important;
+    font-size: 1.2rem !important;
+    font-style: italic;
+}
+
+/* Story CTA Section */
+.story-cta {
+    padding: 6rem 0;
+    background: var(--heavenly-blue);
+    color: var(--grace-white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.story-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--heavenly-blue) 0%, var(--prayer-purple) 100%);
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.5rem;
+    color: var(--grace-white);
+    margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    color: var(--warm-peach);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.story-cta .btn {
+    background: var(--grace-white);
+    color: var(--deep-faith);
+}
+
+.story-cta .btn:hover {
+    background: var(--warm-peach);
+    color: var(--grace-white);
+}
+
+.story-cta .btn-secondary {
+    background: transparent;
+    color: var(--grace-white);
+    border: 2px solid var(--grace-white);
+}
+
+.story-cta .btn-secondary:hover {
+    background: var(--grace-white);
+    color: var(--deep-faith);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 6rem 0;
+    background: var(--grace-white);
+    text-align: center;
+}
+
+.contact-content h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.5rem;
+    color: var(--deep-faith);
+    margin-bottom: 1.5rem;
+}
+
+.contact-content p {
+    font-size: 1.1rem;
+    color: var(--cross-brown);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.contact-info {
+    background: var(--peace-cream);
+    padding: 2rem;
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--deep-faith);
+}
+
+.contact-info strong {
+    color: var(--heavenly-blue);
+}
+
+/* Chapter dividers */
+.discovery-chapter::after,
+.journey-chapter::after {
+    content: '';
+    position: absolute;
+    bottom: -70px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: var(--grace-white);
+    transform: skewY(-2deg);
+    transform-origin: bottom left;
+    z-index: 10;
+}
+
+.grace-chapter::after,
+.restoration-chapter::after {
+    content: '';
+    position: absolute;
+    bottom: -70px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: var(--peace-cream);
+    transform: skewY(2deg);
+    transform-origin: bottom right;
+    z-index: 10;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        min-height: 80vh;
+        gap: 2rem;
+    }
+
+    .hero-text {
+        padding: 0;
+        order: 2;
+    }
+
+    .hero-visual {
+        order: 1;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .chapter-layout,
+    .chapter-layout.reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .chapter-label {
+        writing-mode: horizontal-tb;
+        text-orientation: initial;
+        font-size: 2.5rem;
+        text-align: center;
+        position: static;
+        margin-bottom: 2rem;
+        order: -1;
+    }
+
+    .chapter-content {
+        order: 0;
+    }
+
+    .chapter-header {
+        text-align: center;
+    }
+
+    .impact-stat {
+        display: block;
+        margin: 0 auto 2rem;
+    }
+
+    .ministry-box {
+        gap: 2rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ministry-stat {
+        min-width: 250px;
+    }
+
+    .timeline-item {
+        padding-left: 40px;
+    }
+
+    .journey-timeline::before {
+        left: 10px;
+    }
+
+    .timeline-marker {
+        left: 2px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .story-chapter {
+        padding: 4rem 0;
+    }
+
+    .chapter-title {
+        font-size: 2.5rem;
+    }
+
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+
+    .contact-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .chapter-title {
+        font-size: 2rem;
+    }
+
+    .chapter-label {
+        font-size: 2rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .ministry-stat .stat-number {
+        font-size: 3rem;
+    }
+
+    .declaration-box,
+    .impact-box,
+    .grace-testimony {
+        padding: 1.5rem;
+    }
+
+    .ministry-declaration {
+        padding: 1.5rem;
+    }
+
+    .contact-info {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Print Styles for Story Page */
+@media print {
+    .hero-visual,
+    .chapter-label {
+        display: none !important;
+    }
+
+    .story-chapter {
+        page-break-inside: avoid;
+        padding: 2rem 0 !important;
+        background: #fff !important;
+    }
+
+    .chapter-layout,
+    .chapter-layout.reverse {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .declaration-box,
+    .story-cta {
+        background: #fff !important;
+        color: #000 !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .declaration-box::before,
+    .story-cta::before {
+        display: none !important;
+    }
+
+    .ministry-stat,
+    .impact-box,
+    .grace-testimony {
+        background: #fff !important;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+    }
+
+    .chapter-title {
+        font-size: 18pt !important;
+        page-break-after: avoid;
+    }
+
+    .story-text {
+        font-size: 12pt !important;
+        line-height: 1.4 !important;
+    }
+}

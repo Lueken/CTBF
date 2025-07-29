@@ -327,11 +327,14 @@ textarea {
 
 .hero h1 {
     font-family: 'Crimson Pro', serif;
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(1.5rem, 4vw, 4rem);
     font-weight: 700;
     color: var(--deep-faith);
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    white-space: nowrap; /* Prevents line breaks */
+    overflow: hidden; /* Prevents horizontal scroll if needed */
+    text-overflow: ellipsis; /* Adds ... if text is too long (backup) */
 }
 
 .hero-subtitle {
@@ -1155,6 +1158,11 @@ textarea {
         gap: 2rem;
     }
 
+    .hero h1 {
+        font-size: clamp(1.3rem, 5vw, 2.5rem);
+        white-space: nowrap;
+    }
+
     .hero-text {
         padding: 0;
         order: 2;
@@ -1315,12 +1323,20 @@ textarea {
     }
 }
 
+@media (max-width: 640px) {
+    .hero h1 {
+        font-size: clamp(1.1rem, 6vw, 2rem);
+        white-space: nowrap;
+    }
+}
+
 @media (max-width: 480px) {
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(0.9rem, 7vw, 1.8rem);
+        white-space: nowrap;
     }
 
-  .nav-links {
+    .nav-links {
         gap: 1.5rem;
         padding: 1.5rem;
     }
@@ -1422,6 +1438,11 @@ textarea {
         height: 38px;
         font-size: 1rem;
     }
+
+    .hero h1 {
+          font-size: clamp(0.8rem, 8vw, 1.5rem);
+          white-space: nowrap;
+      }
 }
 
 /* ==========================================================================

@@ -889,77 +889,106 @@ textarea {
     transform: translateY(-2px);
 }
 
-/* Certifications Section - Compact Version with Tight Grouping */
+/* ===============================================
+   UPDATED CERTIFICATIONS SECTION - CENTERED & SYMMETRICAL
+   =============================================== */
+
 .certifications {
     background: var(--peace-cream);
-    padding: 3rem 0; /* Reduced from 6rem */
+    padding: 3rem 0;
 }
 
 .certifications-container {
-    max-width: 1200px;
+    max-width: 1400px; /* Increased for better spread */
     margin: 0 auto;
     padding: 0 2rem;
 }
 
 .certifications-header {
     text-align: center;
-    margin-bottom: 2rem; /* Reduced from 4rem */
+    margin-bottom: 3rem;
 }
 
 .certifications-header h2 {
     font-family: 'Crimson Pro', serif;
-    font-size: 2rem; /* Reduced from 2.5rem */
+    font-size: 2rem;
     color: var(--deep-faith);
-    margin-bottom: 0.5rem; /* Reduced from 1rem */
+    margin-bottom: 0.5rem;
 }
 
 .certifications-header p {
     color: var(--cross-brown);
 }
 
+/* Main Grid - Equal Distribution */
 .certifications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Ensures equal width columns */
+    gap: 3rem;
+    align-items: start; /* Align to top for consistent height */
+    justify-items: center; /* Center each section within its grid cell */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.cert-section {
+/* Individual Section Styling - All Same Width */
+.cert-section,
+.ministry-section {
+    width: 100%; /* Take full width of grid cell */
+    max-width: 350px; /* Consistent max width for all sections */
     text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    min-height: 400px; /* Ensures consistent height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.cert-section h3 {
+/* Section Headers - Consistent Styling */
+.cert-section h3,
+.ministry-section h3 {
     font-family: 'Crimson Pro', serif;
     font-size: 1.5rem;
     color: var(--heavenly-blue);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
-/* Certificate Images Container - Side by Side Layout with Tight Grouping */
+/* Certificate Images - Centered Layout */
 .cert-images {
     display: flex;
-    gap: 0.5rem; /* Tight grouping like ministry circles */
     justify-content: center;
-    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
     margin-bottom: 1.5rem;
 }
 
 .cert-image {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     background: var(--grace-white);
-    border-radius: 10px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--gentle-mist);
+    transition: transform 0.3s ease;
+}
+
+.cert-image:hover {
+    transform: translateY(-2px);
 }
 
 .cert-image img {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 85px;
+    max-height: 85px;
     object-fit: contain;
+    border-radius: 8px;
 }
 
 .cert-placeholder {
@@ -969,47 +998,32 @@ textarea {
     padding: 0.75rem;
 }
 
-.cert-credentials {
-    margin-bottom: 1rem;
-}
-
-.cert-credentials p {
-    color: var(--cross-brown);
-    margin-bottom: 0.25rem;
-}
-
+/* Contact Info - Left Aligned Text, Centered Container */
 .contact-info {
     text-align: left;
+    margin: 0 auto;
+    max-width: 280px;
 }
 
 .contact-info p {
     color: var(--cross-brown);
     margin-bottom: 0.5rem;
+    font-size: 0.95rem;
 }
 
-.ministry-section {
-    text-align: center;
-}
-
-.ministry-section h3 {
-    font-family: 'Crimson Pro', serif;
-    font-size: 1.5rem;
-    color: var(--heavenly-blue);
-    margin-bottom: 1rem;
-}
-
+/* Ministry Logos - Centered */
 .ministry-logos {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .ministry-logo {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     background: var(--grace-white);
     border-radius: 50%;
     display: flex;
@@ -1032,20 +1046,91 @@ textarea {
 }
 
 .ministry-list {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
+    text-align: center;
 }
 
 .ministry-list p {
     color: var(--prayer-purple);
     font-weight: 500;
-    margin: 0;
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
 }
 
+/* Credentials Text - Centered */
+.cert-credentials {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.cert-credentials p {
+    color: var(--cross-brown);
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+/* Social Links - Centered */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: auto; /* Pushes to bottom of flex container */
+}
+
+.donate-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(148, 136, 163, 0.3);
+    text-align: center;
+}
+
+.donate-text {
+    color: var(--cross-brown);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.donate-btn {
+    background: linear-gradient(135deg, var(--prayer-purple) 0%, var(--heavenly-blue) 100%);
+    color: var(--grace-white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(148, 136, 163, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.donate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(148, 136, 163, 0.4);
+    background: linear-gradient(135deg, var(--heavenly-blue) 0%, var(--accent-cyan) 100%);
+}
+
+
+
 /* Responsive Design */
+@media (max-width: 968px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 0 1rem;
+    }
+
+    .cert-section,
+    .ministry-section {
+        max-width: 100%;
+        min-height: auto;
+    }
+}
+
 @media (max-width: 768px) {
     .hero {
         grid-template-columns: 1fr;
@@ -1154,54 +1239,36 @@ textarea {
     }
 
     /* Certifications Mobile */
-    .certifications {
-        padding: 2rem 0;
-    }
-
-    .certifications-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+    .certifications-container {
+        padding: 0 1rem;
     }
 
     .cert-images {
-        gap: 0.375rem; /* Slightly tighter on mobile */
+        gap: 0.75rem;
     }
 
     .cert-image {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
     }
 
     .cert-image img {
-        max-width: 90px;
-        max-height: 90px;
+        max-width: 75px;
+        max-height: 75px;
     }
 
-    .ministry-logos {
-        gap: 1rem;
+    .donate-section {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
     }
 
-    .ministry-logo {
-        width: 70px;
-        height: 70px;
+    .donate-btn {
+        padding: 0.7rem 1.3rem;
+        font-size: 0.9rem;
     }
 
-    .ministry-logo img {
-        max-width: 50px;
-        max-height: 50px;
-    }
-
-    .ministry-list {
-        flex-direction: column;
-        gap: 0.25rem;
-    }
-
-    .certifications-header h2 {
-        font-size: 1.75rem;
-    }
-
-    .ministry-section h3 {
-        font-size: 1.3rem;
+    .donate-text {
+        font-size: 0.85rem;
     }
 }
 
@@ -1226,21 +1293,26 @@ textarea {
 
     /* Certifications Very Small Screens */
     .certifications {
-        padding: 1.5rem 0;
+        padding: 2rem 0;
+    }
+
+    .cert-section,
+    .ministry-section {
+        padding: 1.5rem 1rem;
     }
 
     .cert-images {
-        gap: 0.25rem; /* Very tight spacing on small screens */
+        gap: 0.5rem;
     }
 
     .cert-image {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
     }
 
     .cert-image img {
-        max-width: 75px;
-        max-height: 75px;
+        max-width: 65px;
+        max-height: 65px;
     }
 
     .cert-placeholder {
@@ -1268,6 +1340,16 @@ textarea {
     .social-link {
         width: 30px;
         height: 30px;
+    }
+
+    .donate-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        gap: 0.4rem;
+    }
+
+    .donate-icon {
+        font-size: 1rem;
     }
 }
 

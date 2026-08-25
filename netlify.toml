@@ -1,0 +1,22 @@
+# Netlify's HTML post-processing ("Pretty URLs") rewrites <a href="our-story.html">
+# to <a href='/our-story'> and re-serializes the whole tag with SINGLE-quoted
+# attributes. Our inline styles contain single quotes -- font-family:'Cormorant
+# Garamond' -- so the rewritten style attribute terminates at the first inner
+# quote and the browser throws the rest away. Every rewritten link lost all of
+# its formatting; the nav overlay rendered as default underlined blue text.
+# This site is plain static HTML with no build step, so there is nothing for
+# post-processing to gain. Turn it off.
+[build.processing]
+  skip_processing = true
+
+# The Retreat is invitation-only. It is not linked from any page and must never
+# be indexed. The page's own robots meta tag is injected by JavaScript, so this
+# header is what actually keeps crawlers out.
+#
+# Deliberately NOT added to robots.txt: robots.txt is world-readable, so a
+# Disallow line would publish the very path we are trying to keep unlisted --
+# and would stop crawlers from ever reading the noindex below.
+[[headers]]
+  for = "/retreat-d705bf8b0fe1/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet"

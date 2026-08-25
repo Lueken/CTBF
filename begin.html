@@ -1,323 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Begin - Created To Be Free</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/story.css">
-    <style>
-        .hero { grid-template-columns: 1fr; text-align: center; min-height: 60vh; }
-        .hero-text { padding: 2rem; max-width: 900px; margin: 0 auto; }
-        .hero h1 { white-space: normal; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Begin - Created To Be Free</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;600;700&display=swap');
+body { margin:0; background:#ffffff; overflow-x:hidden; }
+a { color:#026a88; } a:hover { color:#01566e; }
 
-        .guides-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-        .guide-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 2rem;
-            border-radius: 6px;
-            text-align: center;
-        }
-        .guide-card h4 {
-            margin: 0 0 0.5rem;
-            font-family: Georgia, serif;
-            color: #c9a961;
-        }
-        .guide-card .guide-role {
-            opacity: 0.7;
-            font-size: 0.9rem;
-            margin: 0 0 1rem;
-        }
-        .guide-card a {
-            color: #c9a961;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.4);
-        }
-        .guides-note {
-            text-align: center;
-            opacity: 0.6;
-            font-style: italic;
-            margin-top: 1.5rem;
-        }
-        .audience-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin: 4rem 0;
-        }
-        @media (max-width: 768px) {
-            .audience-split { grid-template-columns: 1fr; }
-        }
-        .audience-card {
-            padding: 3rem 2rem;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            text-align: center;
-        }
-        .audience-card .audience-label {
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.8rem;
-            color: #c9a961;
-            margin-bottom: 1rem;
-        }
-        .audience-card h3 {
-            font-family: Georgia, serif;
-            margin: 0 0 1rem;
-        }
-        .audience-card p {
-            line-height: 1.65;
-            margin-bottom: 2rem;
-        }
-    </style>
+@media (max-width: 860px) {
+  /* left rail becomes a top bar */
+  [data-m~="rail"] { width:100% !important; height:54px !important; flex-direction:row !important;
+    justify-content:flex-start !important; align-items:center !important; gap:14px !important;
+    padding:0 20px !important; }
+  [data-m~="rail"] > span:nth-child(2) { writing-mode:horizontal-tb !important; transform:none !important;
+    letter-spacing:0.2em !important; flex:0 0 auto !important; }
+  [data-m~="rail"] > span:nth-child(3) { display:none !important; }
+  [data-m~="main"] { margin-left:0 !important; margin-top:54px !important; }
+  [data-m~="menu"] { top:5px !important; right:14px !important; width:44px !important; height:44px !important;
+    box-shadow:none !important; }
+
+  /* content gutters: the 168px label column collapses */
+  [data-m~="wrap"] { padding:52px 20px !important; }
+  [data-m~="band"] { min-height:0 !important; }
+
+  /* vertical chapter labels lie down above their heading */
+  [data-m~="mark"] { position:static !important; flex-direction:row !important; align-items:center !important;
+    gap:12px !important; margin:0 0 20px !important; }
+  [data-m~="mark"] > span:nth-child(2) { width:24px !important; height:1px !important; }
+  [data-m~="mark"] > span:nth-child(3) { writing-mode:horizontal-tb !important; transform:none !important;
+    font-size:26px !important; letter-spacing:0.08em !important; opacity:0.9 !important; }
+  [data-m~="marklabel"] { position:static !important; writing-mode:horizontal-tb !important; transform:none !important;
+    font-size:24px !important; display:block !important; margin:0 0 18px !important; opacity:0.9 !important; }
+
+  /* every multi-column block stacks */
+  [data-m~="hero"] { grid-template-columns:1fr !important; min-height:0 !important; }
+  [data-m~="heropanel"] { padding:40px 20px 44px !important; }
+  [data-m~="herophoto"] { min-height:280px !important; height:280px !important; }
+  [data-m~="g2"], [data-m~="g3"] { grid-template-columns:1fr !important; gap:0 !important; }
+  [data-m~="g3"] > * + * { margin-top:36px !important; }
+  [data-m~="g2"] > * + * { margin-top:4px !important; }
+  [data-m~="stats"] { gap:32px !important; }
+  /* footer / guide text links need a real tap row */
+  [data-m~="g3"] a, [data-m~="wrap"] > a, [data-m~="wrap"] p > a { min-height:44px !important;
+    display:inline-flex !important; align-items:center !important; }
+  [data-m~="tallimg"] { height:280px !important; }
+  [data-m~="pyramid"] > div { width:100% !important; }
+
+  /* nav overlay */
+  [data-m~="nav"] > ul { padding:0 24px !important; gap:2px !important; }
+  [data-m~="nav"] a { font-size:27px !important; padding:9px 0 !important; min-height:44px !important; box-sizing:border-box !important; }
+  [data-m~="nav"] li { gap:18px !important; }
+}
+@media (max-width: 480px) {
+  [data-m~="wrap"] { padding:44px 18px !important; }
+  [data-m~="nav"] a { font-size:24px !important; }
+}
+</style>
+<style>
+#nav-overlay.open { display: flex !important; }
+.i1:hover { color:#fde680 !important; }
+.i2:hover { color:#fde680 !important; }
+.i3:hover { color:#fde680 !important; }
+.i4:hover { color:#fde680 !important; }
+.i5:hover { color:#fde680 !important; }
+.i6:hover { color:#fde680 !important; }
+.i7:hover { background:#0282a7 !important; color:#ffffff !important; border-color:#0282a7 !important; }
+.i8:hover { background:#026a88 !important; transform:translateY(-2px) !important; }
+.i9:hover { background:#f1c298 !important; color:#494949 !important; }
+.i10:hover { background:#f1c298 !important; transform:translateY(-2px) !important; }
+.i11:hover { color:#026a88 !important; }
+.i12:hover { color:#8f5c30 !important; }
+.i13:focus { border-color:#fde680 !important; }
+.i14:focus { border-color:#fde680 !important; }
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav-overlay" id="navOverlay">
-        <div class="nav-content">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="story.html">Our Story</a></li>
-                <li><a href="swamp.html">The Swamp</a></li>
-                <li><a href="disclosure.html">Disclosure</a></li>
-                <li><a href="for-husbands.html">For Husbands</a></li>
-                <li><a href="for-wives.html">For Wives</a></li>
-                <li><a href="begin.html">Begin</a></li>
-            </ul>
-        </div>
+<div style="font-family:'Karla',sans-serif; background:#ffffff; color:#494949;" data-screen-label="Begin">
+  
+    <nav id="nav-overlay" data-m="nav" style="position:fixed; inset:0; background:rgba(2,130,167,0.97); z-index:1000; display:none; align-items:center; justify-content:center; backdrop-filter:blur(8px);">
+      <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px;">
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">01</span><a href="index.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i1">Home</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">02</span><a href="our-story.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i2">Our Story</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">03</span><a href="the-swamp.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i3">The Swamp</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">04</span><a href="disclosure.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i4">Disclosure</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">05</span><a href="for-husbands.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i5">For Husbands</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">06</span><a href="for-wives.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i6">For Wives</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:#fde680; font-weight:700;">07</span><a href="begin.html" style="font-family:'Cormorant Garamond',serif; color:#ffffff; text-decoration:none; font-size:34px; padding:6px 0; display:block; font-style:italic;">Begin</a></li>
+      </ul>
     </nav>
 
-    <button class="menu-toggle" id="menuToggle">☰</button>
+  <aside data-m="rail" style="position:fixed; top:0; left:0; width:76px; height:100dvh; background:#0282a7; z-index:900; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:26px 0; box-sizing:border-box; overflow:hidden; gap:14px;">
+    <span style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; letter-spacing:0.1em; color:#ffffff;">C</span>
+    <span style="writing-mode:vertical-rl; transform:rotate(180deg); font-size:11px; text-transform:uppercase; letter-spacing:0.32em; color:rgba(255,255,255,0.85); font-weight:700; min-height:0; overflow:hidden; flex:0 1 auto;">Created To Be Free</span>
+    <span style="width:20px; height:2px; background:#fde680; display:block; flex:0 0 auto;"></span>
+  </aside>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-text">
-            <p class="hero-kicker fade-in">Take Courage</p>
-            <h1 class="fade-in">I believe in the process with all my heart.</h1>
-            <p class="hero-subtitle fade-in">It&rsquo;s hard. It&rsquo;s stressful. It&rsquo;s heart-wrenching. And yet, I believe in the process with all my heart.</p>
-        </div>
+  <button data-m="menu" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" style="position:fixed; top:22px; right:26px; z-index:1001; background:#ffffff; border:1px solid #d7e3ea; color:#0282a7; width:46px; height:46px; cursor:pointer; font-size:16px; font-family:'Karla',sans-serif; box-shadow:0 2px 14px rgba(2,130,167,0.12);" class="i7">☰</button>
+
+  <main data-m="main" style="margin-left:76px;">
+    <section style="background:linear-gradient(135deg, #013f52 0%, #01546b 55%, #015f7b 100%);">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:116px 60px 84px 168px;">
+        <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.32em; color:#ffeeae; font-weight:700; margin:0 0 26px;">Take Courage</p>
+        <h1 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(40px,4.8vw,68px); line-height:1.04; color:#ffffff; margin:0 0 24px; max-width:22ch; text-wrap:balance;">I believe in the process with all my heart.</h1>
+        <p style="font-size:19px; line-height:1.72; color:#ffffff; margin:0; max-width:62ch;">It&rsquo;s hard. It&rsquo;s stressful. It&rsquo;s heart-wrenching. And yet, I believe in the process with all my heart.</p>
+      </div>
     </section>
 
-    <!-- Why I Believe -->
-    <section class="story-chapter today-chapter">
-        <div class="story-container">
-            <div class="chapter-layout">
-                <div class="chapter-label fade-in">CONVICTION</div>
-                <div class="chapter-content">
-                    <div class="chapter-header fade-in">
-                        <span class="chapter-number">Why I Facilitate</span>
-                        <h2 class="chapter-title">These are some great reasons a couple would choose to engage with the Full Therapeutic Disclosure process.</h2>
-                    </div>
-
-                    <div class="story-text fade-in">
-                        <p>It&rsquo;s hard. It&rsquo;s stressful. It&rsquo;s heart-wrenching. And yet, I believe in the process with all my heart. If I didn&rsquo;t, I would stop recommending that couples go through it and I would stop facilitating them. I almost did stop a few months after my original training. Rites of Truth (the reading of the document) aren&rsquo;t only difficult for the couple. It&rsquo;s difficult for your Partner Guides as well.</p>
-                    </div>
-                </div>
-            </div>
+    <section style="position:relative; background:#ffffff; border-bottom:1px solid #e6eef2;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:88px 60px 88px 168px;">
+        <div data-m="mark" style="position:absolute; left:60px; top:96px; display:flex; flex-direction:column; align-items:center; gap:14px; pointer-events:none;">
+          <span style="font-size:11px; letter-spacing:0.22em; color:#026a88; font-weight:700;">01</span>
+          <span style="width:1px; height:28px; background:#dfe9ee; display:block;"></span>
+          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#014f66;">Conviction</span>
         </div>
+          <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.3em; color:#8f5a2b; font-weight:700; margin:0 0 18px;">Why I Facilitate</p>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(32px,3.5vw,46px); line-height:1.1; color:#494949; margin:0 0 28px; max-width:19ch; text-wrap:balance;">Great reasons a couple would choose to engage with the process.</h2>
+          <p style="font-size:18px; line-height:1.8; color:#6f6461; margin:0; max-width:66ch;">It&rsquo;s hard. It&rsquo;s stressful. It&rsquo;s heart-wrenching. And yet, I believe in the process with all my heart. If I didn&rsquo;t, I would stop recommending that couples go through it and I would stop facilitating them. I almost did stop a few months after my original training. Rites of Truth (the reading of the document) aren&rsquo;t only difficult for the couple. It&rsquo;s difficult for your Partner Guides as well.</p>
+      </div>
     </section>
 
-    <!-- Risks -->
-    <section class="story-chapter discovery-chapter">
-        <div class="story-container">
-            <div class="chapter-layout reverse">
-                <div class="chapter-content">
-                    <div class="chapter-header fade-in">
-                        <span class="chapter-number">Honestly</span>
-                        <h2 class="chapter-title">Are there risks? Yes.</h2>
-                    </div>
-
-                    <div class="story-text fade-in">
-                        <p>There are always inherent risks in taking a stance of being vulnerable. Vulnerability, by definition in the dictionary, requires risk. We can&rsquo;t be vulnerable if we don&rsquo;t risk being hurt or disappointed. There is some risk. Every FTD is different and there is no guarantee of the outcome. But I can assure you with high probability the outcome if you don&rsquo;t choose to pursue a Full Therapeutic Disclosure.</p>
-                    </div>
-                </div>
-                <div class="chapter-label fade-in">RISK</div>
-            </div>
+    <section style="position:relative; background:#f6fafc; border-bottom:1px solid #e6eef2;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:88px 60px 88px 168px;">
+        <div data-m="mark" style="position:absolute; left:60px; top:96px; display:flex; flex-direction:column; align-items:center; gap:14px; pointer-events:none;">
+          <span style="font-size:11px; letter-spacing:0.22em; color:#026a88; font-weight:700;">02</span>
+          <span style="width:1px; height:28px; background:#dfe9ee; display:block;"></span>
+          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#5c5250;">Risk</span>
         </div>
+          <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.3em; color:#8f5a2b; font-weight:700; margin:0 0 18px;">Honestly</p>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(32px,3.5vw,46px); line-height:1.1; color:#494949; margin:0 0 28px; max-width:19ch; text-wrap:balance;">Are there risks? Yes.</h2>
+          <p style="font-size:18px; line-height:1.8; color:#6f6461; margin:0; max-width:66ch;">There are always inherent risks in taking a stance of being vulnerable. Vulnerability, by definition in the dictionary, requires risk. We can&rsquo;t be vulnerable if we don&rsquo;t risk being hurt or disappointed. There is some risk. Every FTD is different and there is no guarantee of the outcome. But I can assure you with high probability the outcome if you don&rsquo;t choose to pursue a Full Therapeutic Disclosure.</p>
+      </div>
     </section>
 
-    <!-- Two Doors: Husbands & Wives -->
-    <section class="story-chapter restoration-chapter">
-        <div class="story-container">
-            <div class="section-header fade-in" style="text-align: center;">
-                <span class="section-number">Two Paths In</span>
-                <h2 class="section-title">Take the next step.</h2>
-            </div>
-
-            <div class="audience-split fade-in">
-                <div class="audience-card">
-                    <div class="audience-label">Gentlemen</div>
-                    <h3>Gentlemen, click the button!</h3>
-                    <p>Schedule a free 30-minute consult with me. Let&rsquo;s talk. I know it&rsquo;s a hard call to make. Take courage. Schedule a time.</p>
-                    <a href="https://calendly.com/createdtobefree/30-minute-free-initial-consultation"
-                       class="btn"
-                       onclick="window.open(this.href, '_blank', 'width=800,height=800'); return false;">
-                        Schedule a Free Consult
-                    </a>
-                </div>
-
-                <div class="audience-card">
-                    <div class="audience-label">Ladies</div>
-                    <h3>Ladies, click their links.</h3>
-                    <p>Ladies, there&rsquo;s a list of Partner Guides at the bottom of this page who would be happy to discuss the process with you. Click their links. Talk with one of them or all of them. I&rsquo;m confident you can find one with whom you&rsquo;re comfortable.</p>
-                    <a href="#partner-guides" class="btn btn-secondary">See the Partner Guides</a>
-                </div>
-            </div>
+    <section style="position:relative; background:#ffffff; border-bottom:1px solid #e6eef2;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:88px 60px 88px 168px;">
+        <div data-m="mark" style="position:absolute; left:60px; top:96px; display:flex; flex-direction:column; align-items:center; gap:14px; pointer-events:none;">
+          <span style="font-size:11px; letter-spacing:0.22em; color:#026a88; font-weight:700;">03</span>
+          <span style="width:1px; height:28px; background:#dfe9ee; display:block;"></span>
+          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#014f66;">Two Paths In</span>
         </div>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(32px,3.5vw,46px); line-height:1.1; color:#494949; margin:0 0 28px; max-width:19ch; text-wrap:balance;">Take the next step.</h2>
+          <div data-m="g2" style="display:grid; grid-template-columns:1fr 1fr; gap:56px;">
+            <div style="border-top:2px solid #0282a7; padding-top:26px;">
+              <span style="font-size:11px; text-transform:uppercase; letter-spacing:0.24em; color:#026a88; font-weight:700; display:block; margin-bottom:14px;">Gentlemen</span>
+              <h3 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:28px; color:#494949; margin:0 0 14px;">Gentlemen, click the button!</h3>
+              <p style="font-size:16px; line-height:1.8; color:#6f6461; margin:0 0 26px;">Schedule a free 30-minute consult with me. Let&rsquo;s talk. I know it&rsquo;s a hard call to make. Take courage. Schedule a time.</p>
+              <a href="https://calendly.com/createdtobefree/30-minute-free-initial-consultation" target="_blank" style="display:inline-block; padding:15px 30px; background:#01617e; color:#ffffff; text-decoration:none; font-size:15px; font-weight:700; transition:all 0.3s ease;" class="i8">Schedule a Free Consult</a>
+            </div>
+            <div style="border-top:2px solid #f1c298; padding-top:26px;">
+              <span style="font-size:11px; text-transform:uppercase; letter-spacing:0.24em; color:#8f5a2b; font-weight:700; display:block; margin-bottom:14px;">Ladies</span>
+              <h3 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:28px; color:#494949; margin:0 0 14px;">Ladies, click their links.</h3>
+              <p style="font-size:16px; line-height:1.8; color:#6f6461; margin:0 0 26px;">Ladies, there&rsquo;s a list of Partner Guides at the bottom of this page who would be happy to discuss the process with you. Click their links. Talk with one of them or all of them. I&rsquo;m confident you can find one with whom you&rsquo;re comfortable.</p>
+              <a href="#partner-guides" style="display:inline-block; padding:15px 30px; background:transparent; color:#8f5a2b; border:1px solid #f1c298; text-decoration:none; font-size:15px; font-weight:700; transition:all 0.3s ease;" class="i9">See the Partner Guides</a>
+            </div>
+          </div>
+      </div>
     </section>
 
-    <!-- Partner Guides List -->
-    <section id="partner-guides" class="story-chapter grace-chapter">
-        <div class="story-container">
-            <div class="chapter-layout">
-                <div class="chapter-label fade-in">PARTNER GUIDES</div>
-                <div class="chapter-content">
-                    <div class="chapter-header fade-in">
-                        <span class="chapter-number">For Partners</span>
-                        <h2 class="chapter-title">Talk with one of them or all of them.</h2>
-                        <p class="chapter-subtitle">I&rsquo;m confident you can find one with whom you&rsquo;re comfortable.</p>
-                    </div>
-
-                    <div class="guides-grid fade-in">
-                        <div class="guide-card">
-                            <h4>[Partner Guide Name]</h4>
-                            <p class="guide-role">Certified Partner Guide</p>
-                            <a href="#">Contact / Schedule</a>
-                        </div>
-                        <div class="guide-card">
-                            <h4>[Partner Guide Name]</h4>
-                            <p class="guide-role">Certified Partner Guide</p>
-                            <a href="#">Contact / Schedule</a>
-                        </div>
-                        <div class="guide-card">
-                            <h4>[Partner Guide Name]</h4>
-                            <p class="guide-role">Certified Partner Guide</p>
-                            <a href="#">Contact / Schedule</a>
-                        </div>
-                    </div>
-
-                    <p class="guides-note">Greg &mdash; replace these placeholders with the actual Partner Guides you want to list (name, role, link to their site or scheduling page).</p>
-                </div>
-            </div>
+    <section id="partner-guides" style="position:relative; background:#f6fafc; border-bottom:1px solid #e6eef2;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:88px 60px 88px 168px;">
+        <div data-m="mark" style="position:absolute; left:60px; top:96px; display:flex; flex-direction:column; align-items:center; gap:14px; pointer-events:none;">
+          <span style="font-size:11px; letter-spacing:0.22em; color:#026a88; font-weight:700;">04</span>
+          <span style="width:1px; height:28px; background:#dfe9ee; display:block;"></span>
+          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#014f66;">Guides</span>
         </div>
+          <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.3em; color:#8f5a2b; font-weight:700; margin:0 0 18px;">For Partners</p>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(32px,3.5vw,46px); line-height:1.1; color:#494949; margin:0 0 10px; max-width:19ch; text-wrap:balance;">Talk with one of them or all of them.</h2>
+          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:21px; color:#6f6480; margin:0 0 28px; max-width:34ch;">I&rsquo;m confident you can find one with whom you&rsquo;re comfortable.</p>
+          <div data-m="g3" style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:36px;">
+            <div style="border-top:1px solid #dfe9ee; padding-top:22px;">
+              <h4 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#494949; margin:0 0 5px;">[Partner Guide Name]</h4>
+              <p style="font-size:14px; color:#6d6260; margin:0 0 16px;">Certified Partner Guide</p>
+              <a href="#" style="font-size:15px; color:#026a88; text-decoration:none; border-bottom:1px solid #c98f4f; font-weight:700; padding-bottom:2px;">Contact / Schedule</a>
+            </div>
+            <div style="border-top:1px solid #dfe9ee; padding-top:22px;">
+              <h4 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#494949; margin:0 0 5px;">[Partner Guide Name]</h4>
+              <p style="font-size:14px; color:#6d6260; margin:0 0 16px;">Certified Partner Guide</p>
+              <a href="#" style="font-size:15px; color:#026a88; text-decoration:none; border-bottom:1px solid #c98f4f; font-weight:700; padding-bottom:2px;">Contact / Schedule</a>
+            </div>
+            <div style="border-top:1px solid #dfe9ee; padding-top:22px;">
+              <h4 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:#494949; margin:0 0 5px;">[Partner Guide Name]</h4>
+              <p style="font-size:14px; color:#6d6260; margin:0 0 16px;">Certified Partner Guide</p>
+              <a href="#" style="font-size:15px; color:#026a88; text-decoration:none; border-bottom:1px solid #c98f4f; font-weight:700; padding-bottom:2px;">Contact / Schedule</a>
+            </div>
+          </div>
+          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; color:#6d6260; margin:28px 0 0;">Greg &mdash; replace these placeholders with the actual Partner Guides you want to list (name, role, link to their site or scheduling page).</p>
+      </div>
     </section>
 
-    <!-- Certifications & Affiliations -->
-    <footer class="certifications">
-        <div class="certifications-container">
-            <div class="certifications-header fade-in">
-                <h2>Credentials & Contact</h2>
-                <p>Professionally trained and committed to Biblical excellence</p>
-            </div>
-
-            <div class="certifications-grid">
-                <div class="cert-section fade-in">
-                    <h3>Follow & Connect</h3>
-                    <div class="cert-images">
-                      <div class="cert-image">
-                          <img src="img/bravehearts-certified-professional-mentor-nobg.webp" alt="Certified Professional Mentor - Bravehearts University">
-                      </div>
-                      <div class="cert-image">
-                          <img src="img/bravehearts-mentoring-mastery-nobg.webp" alt="Mentoring Mastery - Bravehearts University">
-                      </div>
-                      <div class="cert-image">
-                          <img src="img/bravehearts-professional-mentoring-nobg.webp" alt="Professional Mentoring - Bravehearts University">
-                      </div>
-                  </div>
-                    <div class="cert-credentials">
-                        <p><strong>Certified Professional Mentor</strong></p>
-                        <p>Licensed Biblical Counselor</p>
-                        <p>45+ Years Recovery Experience</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link">📧</a>
-                        <a href="#" class="social-link">📞</a>
-                        <a href="#" class="social-link">📱</a>
-                    </div>
-                </div>
-
-                <div class="cert-section fade-in">
-                    <h3>Contact & Support</h3>
-                    <div class="contact-info">
-                        <p><strong>Phone:</strong> (555) 123-4567</p>
-                        <p><strong>Email:</strong> info@createdtobefree.org</p>
-                        <p><strong>Address:</strong> [Your Address]</p>
-                        <p><strong>Office Hours:</strong> Mon-Fri 9AM-5PM</p>
-                        <p><strong>Emergency:</strong> Available 24/7</p>
-                    </div>
-
-                    <div class="donate-section">
-                        <p class="donate-text">Support our ministry and help others find freedom</p>
-                        <a href="#" class="btn donate-btn">Donate Now</a>
-                    </div>
-                </div>
-
-                <div class="ministry-section fade-in">
-                    <h3>Ministry Affiliations</h3>
-                    <div class="ministry-logos">
-                        <div class="ministry-logo"><div class="ministry-placeholder">Church</div></div>
-                        <div class="ministry-logo"><div class="ministry-placeholder">Assoc.</div></div>
-                        <div class="ministry-logo"><div class="ministry-placeholder">Network</div></div>
-                    </div>
-                    <div class="ministry-list">
-                        <p><strong>Local Church Partnership</strong></p>
-                        <p>Christian Counseling Association</p>
-                        <p>Biblical Recovery Network</p>
-                    </div>
-                </div>
-            </div>
+    <section style="position:relative; background:#014f66; overflow:hidden;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:88px 60px 88px 168px; min-height:460px; box-sizing:border-box;">
+        <span data-m="marklabel" style="position:absolute; left:60px; top:88px; writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; opacity:0.6; color:#fde680;">Write To Me</span>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(32px,3.7vw,48px); line-height:1.08; color:#ffffff; margin:0 0 12px; max-width:20ch;">Or simply <em style="color:#fde680;">write to me.</em></h2>
+        <p style="font-size:16px; line-height:1.8; color:#ffffff; margin:0 0 36px; max-width:52ch;">No pressure, no judgment. Tell me a little about your situation and I&rsquo;ll respond personally.</p>
+        <div style="display:flex; flex-direction:column; gap:16px; max-width:520px;">
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <label style="font-size:11px; text-transform:uppercase; letter-spacing:0.2em; color:#fde680; font-weight:700;">Your Name</label>
+            <input type="text" placeholder="First name is fine" style="padding:15px 16px; border:1px solid rgba(255,255,255,0.4); background:rgba(255,255,255,0.1); color:#ffffff; font-size:16px; font-family:'Karla',sans-serif; outline:none;" class="i13">
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <label style="font-size:11px; text-transform:uppercase; letter-spacing:0.2em; color:#fde680; font-weight:700;">Email</label>
+            <input type="email" placeholder="you@example.com" style="padding:15px 16px; border:1px solid rgba(255,255,255,0.4); background:rgba(255,255,255,0.1); color:#ffffff; font-size:16px; font-family:'Karla',sans-serif; outline:none;" class="i14">
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <label style="font-size:11px; text-transform:uppercase; letter-spacing:0.2em; color:#fde680; font-weight:700;">Message</label>
+            <textarea rows="5" placeholder="Whatever you're comfortable sharing." style="padding:15px 16px; border:1px solid rgba(255,255,255,0.4); background:rgba(255,255,255,0.1); color:#ffffff; font-size:16px; font-family:'Karla',sans-serif; outline:none; resize:vertical;"></textarea>
+          </div>
+          <button style="padding:16px 34px; background:#fde680; color:#494949; border:none; font-size:16px; font-weight:700; font-family:'Karla',sans-serif; cursor:pointer; margin-top:8px; align-self:flex-start; transition:all 0.3s ease;" class="i10">Send Message</button>
+          <p style="font-size:14px; color:rgba(255,255,255,0.92); margin:8px 0 0;">Everything you share is held in strict confidence.</p>
         </div>
+      </div>
+    </section>
+    <footer style="background:#ffffff; border-top:1px solid #e6eef2;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:80px 60px 36px;">
+        <div data-m="g3" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; align-items:start;">
+          <div>
+            <img src="img/ctbf_inc.png" alt="CTBF Inc. — creating a path toward hope &amp; freedom from addiction" style="width:146px; height:146px; object-fit:cover; display:block; margin-bottom:20px;">
+            <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px; line-height:1.55; color:#6d6260; margin:0;">Creating a path toward hope &amp; freedom from addiction.</p>
+          </div>
+          <div>
+            <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:#026a88; display:block; margin-bottom:20px;">Credentials</span>
+            <div style="display:flex; gap:10px; margin-bottom:20px;">
+              <img src="img/bravehearts-certified-professional-mentor-nobg.webp" alt="Certified Professional Mentor - Bravehearts University" style="width:66px; height:66px; object-fit:contain;">
+              <img src="img/bravehearts-mentoring-mastery-nobg.webp" alt="Mentoring Mastery - Bravehearts University" style="width:66px; height:66px; object-fit:contain;">
+              <img src="img/bravehearts-professional-mentoring-nobg.webp" alt="Professional Mentoring - Bravehearts University" style="width:66px; height:66px; object-fit:contain;">
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <span style="font-size:15px; color:#494949; font-weight:700;">Certified Professional Mentor</span>
+              <span style="font-size:15px; color:#6f6461;">Licensed Biblical Counselor</span>
+              <span style="font-size:15px; color:#6f6461;">45+ Years Recovery Experience</span>
+            </div>
+          </div>
+          <div>
+            <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:#026a88; display:block; margin-bottom:20px;">Contact</span>
+            <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:24px;">
+              <span style="font-size:15px; color:#6f6461;">(555) 123-4567</span>
+              <span style="font-size:15px; color:#6f6461;">info@createdtobefree.org</span>
+              <span style="font-size:15px; color:#6f6461;">Mon&ndash;Fri 9AM&ndash;5PM</span>
+              <span style="font-size:15px; color:#6f6461;">Emergency: Available 24/7</span>
+            </div>
+            <div style="display:flex; gap:24px; flex-wrap:wrap;">
+              <a href="https://calendly.com/createdtobefree/30-minute-free-initial-consultation" target="_blank" style="font-size:15px; font-weight:700; color:#026a88; text-decoration:none; border-bottom:1px solid #0282a7; padding-bottom:2px;" class="i11">Book a Consult</a>
+              <a href="#" style="font-size:15px; font-weight:700; color:#8f5a2b; text-decoration:none; border-bottom:1px solid #f1c298; padding-bottom:2px;" class="i12">Donate</a>
+            </div>
+          </div>
+        </div>
+        <div style="border-top:1px solid #e6eef2; margin-top:48px; padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+          <span style="font-size:14px; color:#767068;">&copy; 2026 Created To Be Free</span>
+          <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; color:#767068;">&ldquo;The truth will set you free.&rdquo; John 8:32</span>
+        </div>
+      </div>
     </footer>
-
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navOverlay = document.getElementById('navOverlay');
-
-        menuToggle.addEventListener('click', function() {
-            navOverlay.classList.toggle('active');
-        });
-
-        const navLinks = document.querySelectorAll('.nav-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navOverlay.classList.remove('active');
-            });
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+  </main>
+</div>
+<script>
+(function () {
+  var b = document.getElementById('nav-toggle'), n = document.getElementById('nav-overlay'), open = false;
+  if (!b || !n) return;
+  function set(o) {
+    open = o;
+    n.classList.toggle('open', o);
+    b.textContent = o ? '\u2715' : '\u2630';
+    b.setAttribute('aria-expanded', o ? 'true' : 'false');
+    document.body.style.overflow = o ? 'hidden' : '';
+  }
+  b.addEventListener('click', function () { set(!open); });
+  n.addEventListener('click', function (e) { if (e.target === n) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) set(false); });
+})();
+</script>
 </body>
 </html>

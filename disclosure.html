@@ -1,246 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Therapeutic Disclosure - Created To Be Free</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/story.css">
-    <style>
-        .hero { grid-template-columns: 1fr; text-align: center; min-height: 60vh; }
-        .hero-text { padding: 2rem; max-width: 900px; margin: 0 auto; }
-        .hero h1 { white-space: normal; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Full Therapeutic Disclosure - Created To Be Free</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;600;700&display=swap');
+body { margin:0; background:#ffffff; overflow-x:hidden; }
+a { color:#026a88; } a:hover { color:#01566e; }
+
+@media (max-width: 860px) {
+  /* left rail becomes a top bar */
+  [data-m~="rail"] { width:100% !important; height:54px !important; flex-direction:row !important;
+    justify-content:flex-start !important; align-items:center !important; gap:14px !important;
+    padding:0 20px !important; }
+  [data-m~="rail"] > span:nth-child(2) { writing-mode:horizontal-tb !important; transform:none !important;
+    letter-spacing:0.2em !important; flex:0 0 auto !important; }
+  [data-m~="rail"] > span:nth-child(3) { display:none !important; }
+  [data-m~="main"] { margin-left:0 !important; margin-top:54px !important; }
+  [data-m~="menu"] { top:5px !important; right:14px !important; width:44px !important; height:44px !important;
+    box-shadow:none !important; }
+
+  /* content gutters: the 168px label column collapses */
+  [data-m~="wrap"] { padding:52px 20px !important; }
+  [data-m~="band"] { min-height:0 !important; }
+
+  /* vertical chapter labels lie down above their heading */
+  [data-m~="mark"] { position:static !important; flex-direction:row !important; align-items:center !important;
+    gap:12px !important; margin:0 0 20px !important; }
+  [data-m~="mark"] > span:nth-child(2) { width:24px !important; height:1px !important; }
+  [data-m~="mark"] > span:nth-child(3) { writing-mode:horizontal-tb !important; transform:none !important;
+    font-size:26px !important; letter-spacing:0.08em !important; opacity:0.9 !important; }
+  [data-m~="marklabel"] { position:static !important; writing-mode:horizontal-tb !important; transform:none !important;
+    font-size:24px !important; display:block !important; margin:0 0 18px !important; opacity:0.9 !important; }
+
+  /* every multi-column block stacks */
+  [data-m~="hero"] { grid-template-columns:1fr !important; min-height:0 !important; }
+  [data-m~="heropanel"] { padding:40px 20px 44px !important; }
+  [data-m~="herophoto"] { min-height:280px !important; height:280px !important; }
+  [data-m~="g2"], [data-m~="g3"] { grid-template-columns:1fr !important; gap:0 !important; }
+  [data-m~="g3"] > * + * { margin-top:36px !important; }
+  [data-m~="g2"] > * + * { margin-top:4px !important; }
+  [data-m~="stats"] { gap:32px !important; }
+  /* footer / guide text links need a real tap row */
+  [data-m~="g3"] a, [data-m~="wrap"] > a, [data-m~="wrap"] p > a { min-height:44px !important;
+    display:inline-flex !important; align-items:center !important; }
+  [data-m~="tallimg"] { height:280px !important; }
+  [data-m~="pyramid"] > div { width:100% !important; }
+
+  /* nav overlay */
+  [data-m~="nav"] > ul { padding:0 24px !important; gap:2px !important; }
+  [data-m~="nav"] a { font-size:27px !important; padding:9px 0 !important; min-height:44px !important; box-sizing:border-box !important; }
+  [data-m~="nav"] li { gap:18px !important; }
+}
+@media (max-width: 480px) {
+  [data-m~="wrap"] { padding:44px 18px !important; }
+  [data-m~="nav"] a { font-size:24px !important; }
+}
+</style>
+<style>
+#nav-overlay.open { display: flex !important; }
+.i1:hover { color:#fde680 !important; }
+.i2:hover { color:#fde680 !important; }
+.i3:hover { color:#fde680 !important; }
+.i4:hover { color:#fde680 !important; }
+.i5:hover { color:#fde680 !important; }
+.i6:hover { color:#fde680 !important; }
+.i7:hover { background:#0282a7 !important; color:#ffffff !important; border-color:#0282a7 !important; }
+.i8:hover { background:#f1c298 !important; transform:translateY(-2px) !important; }
+.i9:hover { background:#ffffff !important; color:#0282a7 !important; }
+.i10:hover { color:#026a88 !important; }
+.i11:hover { color:#8f5c30 !important; }
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav-overlay" id="navOverlay">
-        <div class="nav-content">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="story.html">Our Story</a></li>
-                <li><a href="swamp.html">The Swamp</a></li>
-                <li><a href="disclosure.html">Disclosure</a></li>
-                <li><a href="for-husbands.html">For Husbands</a></li>
-                <li><a href="for-wives.html">For Wives</a></li>
-                <li><a href="begin.html">Begin</a></li>
-            </ul>
-        </div>
+<div style="font-family:'Karla',sans-serif; background:#ffffff; color:#494949;" data-screen-label="Disclosure">
+  
+    <nav id="nav-overlay" data-m="nav" style="position:fixed; inset:0; background:rgba(2,130,167,0.97); z-index:1000; display:none; align-items:center; justify-content:center; backdrop-filter:blur(8px);">
+      <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px;">
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">01</span><a href="index.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i1">Home</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">02</span><a href="our-story.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i2">Our Story</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">03</span><a href="the-swamp.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i3">The Swamp</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:#fde680; font-weight:700;">04</span><a href="disclosure.html" style="font-family:'Cormorant Garamond',serif; color:#ffffff; text-decoration:none; font-size:34px; padding:6px 0; display:block; font-style:italic;">Disclosure</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">05</span><a href="for-husbands.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i4">For Husbands</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">06</span><a href="for-wives.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i5">For Wives</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:'Karla',sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">07</span><a href="begin.html" style="font-family:'Cormorant Garamond',serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i6">Begin</a></li>
+      </ul>
     </nav>
 
-    <button class="menu-toggle" id="menuToggle">☰</button>
+  <aside data-m="rail" style="position:fixed; top:0; left:0; width:76px; height:100dvh; background:#0282a7; z-index:900; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:26px 0; box-sizing:border-box; overflow:hidden; gap:14px;">
+    <span style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; letter-spacing:0.1em; color:#ffffff;">C</span>
+    <span style="writing-mode:vertical-rl; transform:rotate(180deg); font-size:11px; text-transform:uppercase; letter-spacing:0.32em; color:rgba(255,255,255,0.85); font-weight:700; min-height:0; overflow:hidden; flex:0 1 auto;">Created To Be Free</span>
+    <span style="width:20px; height:2px; background:#fde680; display:block; flex:0 0 auto;"></span>
+  </aside>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-text">
-            <p class="hero-kicker fade-in">The Process That Heals</p>
-            <h1 class="fade-in">What exactly is this thing called FULL THERAPEUTIC DISCLOSURE?</h1>
-            <p class="hero-subtitle fade-in">First, you get sober. Then, you prepare for a Full Therapeutic Disclosure.</p>
-        </div>
+  <button data-m="menu" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" style="position:fixed; top:22px; right:26px; z-index:1001; background:#ffffff; border:1px solid #d7e3ea; color:#0282a7; width:46px; height:46px; cursor:pointer; font-size:16px; font-family:'Karla',sans-serif; box-shadow:0 2px 14px rgba(2,130,167,0.12);" class="i7">☰</button>
+
+  <main data-m="main" style="margin-left:76px;">
+    <section style="background:linear-gradient(135deg, #013f52 0%, #01546b 55%, #015f7b 100%);">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:116px 60px 84px 168px;">
+        <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.32em; color:#ffeeae; font-weight:700; margin:0 0 26px;">The Process That Heals</p>
+        <h1 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(40px,4.8vw,68px); line-height:1.04; color:#ffffff; margin:0 0 24px; max-width:22ch; text-wrap:balance;">What exactly is this thing called Full Therapeutic Disclosure?</h1>
+        <p style="font-size:19px; line-height:1.72; color:#ffffff; margin:0; max-width:62ch;">First, you get sober. Then, you prepare for a Full Therapeutic Disclosure.</p>
+      </div>
     </section>
 
-    <!-- The Three Words -->
-    <section class="solution">
-        <div class="story-container">
-            <div class="solution-layout">
-                <div class="solution-content">
-                    <div class="section-header fade-in">
-                        <span class="section-number">Three Words</span>
-                        <h2 class="section-title">What does that actually mean?</h2>
-                        <p class="section-subtitle">Taken separately, we all know the individual words. But when those three words get used together, they become an enigma.</p>
-                    </div>
-
-                    <div class="solution-features fade-in">
-                        <div class="feature-item">
-                            <h4>&ldquo;Full&rdquo;</h4>
-                            <p>means total, complete, nothing left out.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>&ldquo;Therapeutic&rdquo;</h4>
-                            <p>means clinical, professional, studied.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>&ldquo;Disclosure&rdquo;</h4>
-                            <p>means to expose, reveal or to share.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="section-label-solution fade-in">DEFINITION</div>
-            </div>
+    <section style="position:relative; background:#ffffff; border-bottom:1px solid #e6eef2;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:88px 60px 88px 168px;">
+        <div data-m="mark" style="position:absolute; left:60px; top:96px; display:flex; flex-direction:column; align-items:center; gap:14px; pointer-events:none;">
+          <span style="font-size:11px; letter-spacing:0.22em; color:#026a88; font-weight:700;">01</span>
+          <span style="width:1px; height:28px; background:#dfe9ee; display:block;"></span>
+          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#014f66;">Definition</span>
         </div>
+          <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.3em; color:#8f5a2b; font-weight:700; margin:0 0 18px;">Three Words</p>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(32px,3.5vw,46px); line-height:1.1; color:#494949; margin:0 0 28px; max-width:19ch; text-wrap:balance;">What does that actually mean?</h2>
+          <p style="font-size:18px; line-height:1.8; color:#6f6461; margin:0 0 44px; max-width:66ch;">Taken separately, we all know the individual words. But when those three words get used together, they become an enigma.</p>
+          <div data-m="g3" style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:36px;">
+            <div style="border-top:2px solid #0282a7; padding-top:22px;"><h4 style="font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:600; color:#0282a7; margin:0 0 10px;">&ldquo;Full&rdquo;</h4><p style="font-size:16px; line-height:1.7; color:#6f6461; margin:0;">means total, complete, nothing left out.</p></div>
+            <div style="border-top:2px solid #56c6da; padding-top:22px;"><h4 style="font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:600; color:#0282a7; margin:0 0 10px;">&ldquo;Therapeutic&rdquo;</h4><p style="font-size:16px; line-height:1.7; color:#6f6461; margin:0;">means clinical, professional, studied.</p></div>
+            <div style="border-top:2px solid #f1c298; padding-top:22px;"><h4 style="font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:600; color:#0282a7; margin:0 0 10px;">&ldquo;Disclosure&rdquo;</h4><p style="font-size:16px; line-height:1.7; color:#6f6461; margin:0;">means to expose, reveal or to share.</p></div>
+          </div>
+      </div>
     </section>
 
-    <!-- The Precipice -->
-    <section class="story-chapter discovery-chapter">
-        <div class="story-container">
-            <div class="chapter-layout">
-                <div class="chapter-label fade-in">THE EDGE</div>
-                <div class="chapter-content">
-                    <div class="chapter-header fade-in">
-                        <span class="chapter-number">Why It&rsquo;s Daunting</span>
-                        <h2 class="chapter-title">They&rsquo;re daunting. You feel vulnerable.</h2>
-                        <p class="chapter-subtitle">It can feel like you&rsquo;re on the edge of a precipice.</p>
-                    </div>
-
-                    <div class="story-text fade-in">
-                        <p>The very thought of sharing the stuff in your past is horrendous and terrifying. And yet, your wife, your counselor, therapist or group leader is gently prodding you toward it. It can feel like you&rsquo;re on the edge of a precipice and any second your feet could slip and you fall headlong into the chasm.</p>
-                    </div>
-                </div>
-            </div>
+    <section style="position:relative; background:#f6fafc; border-bottom:1px solid #e6eef2;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:88px 60px 88px 168px;">
+        <div data-m="mark" style="position:absolute; left:60px; top:96px; display:flex; flex-direction:column; align-items:center; gap:14px; pointer-events:none;">
+          <span style="font-size:11px; letter-spacing:0.22em; color:#026a88; font-weight:700;">02</span>
+          <span style="width:1px; height:28px; background:#dfe9ee; display:block;"></span>
+          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#5c5250;">The Edge</span>
         </div>
+          <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.3em; color:#8f5a2b; font-weight:700; margin:0 0 18px;">Why It&rsquo;s Daunting</p>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(32px,3.5vw,46px); line-height:1.1; color:#494949; margin:0 0 10px; max-width:19ch; text-wrap:balance;">They&rsquo;re daunting. You feel vulnerable.</h2>
+          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:21px; color:#6f6480; margin:0 0 28px; max-width:34ch;">It can feel like you&rsquo;re on the edge of a precipice.</p>
+          <p style="font-size:18px; line-height:1.8; color:#6f6461; margin:0; max-width:66ch;">The very thought of sharing the stuff in your past is horrendous and terrifying. And yet, your wife, your counselor, therapist or group leader is gently prodding you toward it. It can feel like you&rsquo;re on the edge of a precipice and any second your feet could slip and you fall headlong into the chasm.</p>
+      </div>
     </section>
 
-    <!-- Greg's Own Train Wreck -->
-    <section class="story-chapter grace-chapter">
-        <div class="story-container">
-            <div class="chapter-layout reverse">
-                <div class="chapter-content">
-                    <div class="chapter-header fade-in">
-                        <span class="chapter-number">My Own Disclosure</span>
-                        <h2 class="chapter-title">I get it. I&rsquo;ve been there. I&rsquo;ve done it.</h2>
-                        <p class="chapter-subtitle">Mine was a train wreck.</p>
-                    </div>
-
-                    <div class="story-text fade-in">
-                        <p>My counselor, who I hold in high regard, said I needed to do it. He said I needed to write my story. He prodded and helped me with it. But he didn&rsquo;t know that I needed a Guide and more importantly, Lynn (my Beloved) needed a Guide.</p>
-
-                        <p>I wrote it, read it to him and then took it home and read it to Lynn with no help and no support. By the Grace of God and Lynn&rsquo;s incredible strength, we got through it.</p>
-                    </div>
-
-                    <div class="grace-testimony fade-in">
-                        <blockquote>
-                            <p>&ldquo;So, when the opportunity came up and God said, &lsquo;Go take this training,&rsquo; He opened the door and I took the training. I didn&rsquo;t want anyone to go through this incredibly difficult but very necessary process, alone.&rdquo;</p>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="chapter-label fade-in">MY STORY</div>
-            </div>
+    <section style="position:relative; background:#ffffff; border-bottom:1px solid #e6eef2;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:88px 60px 88px 168px;">
+        <div data-m="mark" style="position:absolute; left:60px; top:96px; display:flex; flex-direction:column; align-items:center; gap:14px; pointer-events:none;">
+          <span style="font-size:11px; letter-spacing:0.22em; color:#026a88; font-weight:700;">03</span>
+          <span style="width:1px; height:28px; background:#dfe9ee; display:block;"></span>
+          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#014f66;">My Story</span>
         </div>
+          <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.3em; color:#8f5a2b; font-weight:700; margin:0 0 18px;">My Own Disclosure</p>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(32px,3.5vw,46px); line-height:1.1; color:#494949; margin:0 0 10px; max-width:19ch; text-wrap:balance;">I get it. I&rsquo;ve been there. I&rsquo;ve done it.</h2>
+          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:21px; color:#6f6480; margin:0 0 28px; max-width:34ch;">Mine was a train wreck.</p>
+          <div style="display:flex; flex-direction:column; gap:18px; max-width:66ch;">
+            <p style="font-size:18px; line-height:1.8; color:#6f6461; margin:0;">My counselor, who I hold in high regard, said I needed to do it. He said I needed to write my story. He prodded and helped me with it. But he didn&rsquo;t know that I needed a Guide and more importantly, Lynn (my Beloved) needed a Guide.</p>
+            <p style="font-size:18px; line-height:1.8; color:#6f6461; margin:0;">I wrote it, read it to him and then took it home and read it to Lynn with no help and no support. By the Grace of God and Lynn&rsquo;s incredible strength, we got through it.</p>
+          </div>          <div style="border-left:2px solid #f1c298; padding:4px 0 4px 28px; margin-top:36px; max-width:60ch;">
+            <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; line-height:1.55; color:#6f6461; margin:0;">&ldquo;So, when the opportunity came up and God said, &lsquo;Go take this training,&rsquo; He opened the door and I took the training. I didn&rsquo;t want anyone to go through this incredibly difficult but very necessary process, alone.&rdquo;</p>
+          </div>
+      </div>
     </section>
 
-    <!-- CTA -->
-    <section class="story-cta">
-        <div class="story-container">
-            <div class="cta-content fade-in">
-                <h2>&ldquo;Why would I ever agree to this?&rdquo;</h2>
-                <p>It is a difficult and stressful process. It is also an incredibly courageous thing to do for yourself and your wife.</p>
-                <div class="cta-buttons">
-                    <a href="for-husbands.html" class="btn">For Husbands</a>
-                    <a href="for-wives.html" class="btn btn-secondary">For Wives</a>
-                </div>
-            </div>
+    <section style="position:relative; background:#014f66; overflow:hidden;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:88px 60px 88px 168px; min-height:460px; box-sizing:border-box;">
+        <span data-m="marklabel" style="position:absolute; left:60px; top:88px; writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; opacity:0.6; color:#fde680;">The Why</span>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(34px,3.9vw,52px); line-height:1.06; color:#ffffff; margin:0 0 34px; max-width:22ch;"><em style="color:#fde680;">&ldquo;Why would I ever agree to this?&rdquo;</em></h2>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="for-husbands.html" style="display:inline-block; padding:16px 34px; background:#fde680; color:#494949; text-decoration:none; font-size:16px; font-weight:700; transition:all 0.3s ease;" class="i8">For Husbands</a>
+          <a href="for-wives.html" style="display:inline-block; padding:16px 34px; background:rgba(1,74,95,0.55); color:#ffffff; border:1px solid rgba(255,255,255,0.85); text-decoration:none; font-size:16px; font-weight:700; transition:all 0.3s ease;" class="i9">For Wives</a>
         </div>
+      </div>
     </section>
-
-    <!-- Certifications & Affiliations -->
-    <footer class="certifications">
-        <div class="certifications-container">
-            <div class="certifications-header fade-in">
-                <h2>Credentials & Contact</h2>
-                <p>Professionally trained and committed to Biblical excellence</p>
+    <footer style="background:#ffffff; border-top:1px solid #e6eef2;">
+      <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:80px 60px 36px;">
+        <div data-m="g3" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; align-items:start;">
+          <div>
+            <img src="img/ctbf_inc.png" alt="CTBF Inc. — creating a path toward hope &amp; freedom from addiction" style="width:146px; height:146px; object-fit:cover; display:block; margin-bottom:20px;">
+            <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px; line-height:1.55; color:#6d6260; margin:0;">Creating a path toward hope &amp; freedom from addiction.</p>
+          </div>
+          <div>
+            <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:#026a88; display:block; margin-bottom:20px;">Credentials</span>
+            <div style="display:flex; gap:10px; margin-bottom:20px;">
+              <img src="img/bravehearts-certified-professional-mentor-nobg.webp" alt="Certified Professional Mentor - Bravehearts University" style="width:66px; height:66px; object-fit:contain;">
+              <img src="img/bravehearts-mentoring-mastery-nobg.webp" alt="Mentoring Mastery - Bravehearts University" style="width:66px; height:66px; object-fit:contain;">
+              <img src="img/bravehearts-professional-mentoring-nobg.webp" alt="Professional Mentoring - Bravehearts University" style="width:66px; height:66px; object-fit:contain;">
             </div>
-
-            <div class="certifications-grid">
-                <div class="cert-section fade-in">
-                    <h3>Follow & Connect</h3>
-                    <div class="cert-images">
-                      <div class="cert-image">
-                          <img src="img/bravehearts-certified-professional-mentor-nobg.webp" alt="Certified Professional Mentor - Bravehearts University">
-                      </div>
-                      <div class="cert-image">
-                          <img src="img/bravehearts-mentoring-mastery-nobg.webp" alt="Mentoring Mastery - Bravehearts University">
-                      </div>
-                      <div class="cert-image">
-                          <img src="img/bravehearts-professional-mentoring-nobg.webp" alt="Professional Mentoring - Bravehearts University">
-                      </div>
-                  </div>
-                    <div class="cert-credentials">
-                        <p><strong>Certified Professional Mentor</strong></p>
-                        <p>Licensed Biblical Counselor</p>
-                        <p>45+ Years Recovery Experience</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link">📧</a>
-                        <a href="#" class="social-link">📞</a>
-                        <a href="#" class="social-link">📱</a>
-                    </div>
-                </div>
-
-                <div class="cert-section fade-in">
-                    <h3>Contact & Support</h3>
-                    <div class="contact-info">
-                        <p><strong>Phone:</strong> (555) 123-4567</p>
-                        <p><strong>Email:</strong> info@createdtobefree.org</p>
-                        <p><strong>Address:</strong> [Your Address]</p>
-                        <p><strong>Office Hours:</strong> Mon-Fri 9AM-5PM</p>
-                        <p><strong>Emergency:</strong> Available 24/7</p>
-                    </div>
-
-                    <div class="donate-section">
-                        <p class="donate-text">Support our ministry and help others find freedom</p>
-                        <a href="#" class="btn donate-btn">Donate Now</a>
-                    </div>
-                </div>
-
-                <div class="ministry-section fade-in">
-                    <h3>Ministry Affiliations</h3>
-                    <div class="ministry-logos">
-                        <div class="ministry-logo"><div class="ministry-placeholder">Church</div></div>
-                        <div class="ministry-logo"><div class="ministry-placeholder">Assoc.</div></div>
-                        <div class="ministry-logo"><div class="ministry-placeholder">Network</div></div>
-                    </div>
-                    <div class="ministry-list">
-                        <p><strong>Local Church Partnership</strong></p>
-                        <p>Christian Counseling Association</p>
-                        <p>Biblical Recovery Network</p>
-                    </div>
-                </div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <span style="font-size:15px; color:#494949; font-weight:700;">Certified Professional Mentor</span>
+              <span style="font-size:15px; color:#6f6461;">Licensed Biblical Counselor</span>
+              <span style="font-size:15px; color:#6f6461;">45+ Years Recovery Experience</span>
             </div>
+          </div>
+          <div>
+            <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:#026a88; display:block; margin-bottom:20px;">Contact</span>
+            <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:24px;">
+              <span style="font-size:15px; color:#6f6461;">(555) 123-4567</span>
+              <span style="font-size:15px; color:#6f6461;">info@createdtobefree.org</span>
+              <span style="font-size:15px; color:#6f6461;">Mon&ndash;Fri 9AM&ndash;5PM</span>
+              <span style="font-size:15px; color:#6f6461;">Emergency: Available 24/7</span>
+            </div>
+            <div style="display:flex; gap:24px; flex-wrap:wrap;">
+              <a href="https://calendly.com/createdtobefree/30-minute-free-initial-consultation" target="_blank" style="font-size:15px; font-weight:700; color:#026a88; text-decoration:none; border-bottom:1px solid #0282a7; padding-bottom:2px;" class="i10">Book a Consult</a>
+              <a href="#" style="font-size:15px; font-weight:700; color:#8f5a2b; text-decoration:none; border-bottom:1px solid #f1c298; padding-bottom:2px;" class="i11">Donate</a>
+            </div>
+          </div>
         </div>
+        <div style="border-top:1px solid #e6eef2; margin-top:48px; padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+          <span style="font-size:14px; color:#767068;">&copy; 2026 Created To Be Free</span>
+          <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; color:#767068;">&ldquo;The truth will set you free.&rdquo; John 8:32</span>
+        </div>
+      </div>
     </footer>
-
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navOverlay = document.getElementById('navOverlay');
-
-        menuToggle.addEventListener('click', function() {
-            navOverlay.classList.toggle('active');
-        });
-
-        const navLinks = document.querySelectorAll('.nav-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navOverlay.classList.remove('active');
-            });
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+  </main>
+</div>
+<script>
+(function () {
+  var b = document.getElementById('nav-toggle'), n = document.getElementById('nav-overlay'), open = false;
+  if (!b || !n) return;
+  function set(o) {
+    open = o;
+    n.classList.toggle('open', o);
+    b.textContent = o ? '\u2715' : '\u2630';
+    b.setAttribute('aria-expanded', o ? 'true' : 'false');
+    document.body.style.overflow = o ? 'hidden' : '';
+  }
+  b.addEventListener('click', function () { set(!open); });
+  n.addEventListener('click', function (e) { if (e.target === n) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) set(false); });
+})();
+</script>
 </body>
 </html>

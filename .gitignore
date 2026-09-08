@@ -5,3 +5,6 @@ node_modules
 dist
 .cache
 .idea
+
+# local design mockups, never deploy
+mockup-*.html

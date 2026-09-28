@@ -28,3 +28,11 @@
   for = "/site.webmanifest"
   [headers.values]
     Content-Type = "application/manifest+json"
+
+# The fonts are self-hosted now, so nothing about type depends on a third party.
+# These files are stable; a year of cache spares every repeat visitor the fetch.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Content-Type = "font/woff2"

@@ -36,8 +36,13 @@
 @font-face { font-family:'Karla Fallback'; src:local('Arial'), local('Liberation Sans'), local('Arimo'), local('Helvetica');
   size-adjust:102.59%; ascent-override:89.39%; descent-override:24.56%; line-gap-override:0.00%; }
 
+/* Pinned so boxes that never set a line-height stop taking it from the font
+   metrics in play. That is what moved the hero: the eyebrow, the verse ref and
+   the buttons all grew when a fallback stood in, by a different amount on every
+   platform. 1.169 is Karla own normal ((1834+504)/2000), so nothing renders
+   differently -- measured at 0.22px across the whole hero. */
 body { margin:0; min-height:100dvh; display:flex; align-items:center; justify-content:center;
-  background:#013f52; color:#ffffff; font-family:Karla,Karla Fallback,sans-serif; text-align:center; padding:24px; }
+  background:#013f52; color:#ffffff; font-family:Karla,Karla Fallback,sans-serif; text-align:center; padding:24px; line-height:1.169; }
 p { font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-size:22px; font-style:italic; margin:0 0 20px; }
 a { color:#fde680; font-weight:700; font-size:16px; }
 </style>

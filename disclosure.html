@@ -48,7 +48,12 @@
 @font-face { font-family:'Karla Fallback'; src:local('Arial'), local('Liberation Sans'), local('Arimo'), local('Helvetica');
   size-adjust:102.59%; ascent-override:89.39%; descent-override:24.56%; line-gap-override:0.00%; }
 
-body { margin:0; background:#ffffff; overflow-x:hidden; }
+/* Pinned so boxes that never set a line-height stop taking it from the font
+   metrics in play. That is what moved the hero: the eyebrow, the verse ref and
+   the buttons all grew when a fallback stood in, by a different amount on every
+   platform. 1.169 is Karla own normal ((1834+504)/2000), so nothing renders
+   differently -- measured at 0.22px across the whole hero. */
+body { margin:0; background:#ffffff; overflow-x:hidden; line-height:1.169; }
 a { color:#026a88; } a:hover { color:#01566e; }
 
 @media (max-width: 860px) {
@@ -122,18 +127,18 @@ a { color:#026a88; } a:hover { color:#01566e; }
 
     <nav id="nav-overlay" data-m="nav" style="position:fixed; inset:0; background:rgba(2,130,167,0.97); z-index:1000; display:none; align-items:center; justify-content:center; backdrop-filter:blur(8px);">
       <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px;">
-        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">01</span><a href="index.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i1">Home</a></li>
-        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">02</span><a href="our-story.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i2">Our Story</a></li>
-        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">03</span><a href="the-swamp.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i3">The Swamp</a></li>
-        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:#fde680; font-weight:700;">04</span><a href="disclosure.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; color:#ffffff; text-decoration:none; font-size:34px; padding:6px 0; display:block; font-style:italic;">What is Full Disclosure?</a></li>
-        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">05</span><a href="for-husbands.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i4">For Husbands</a></li>
-        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">06</span><a href="for-wives.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i5">For Wives</a></li>
-        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">07</span><a href="begin.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i6">Begin</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">01</span><a href="index.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i1">Home</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">02</span><a href="our-story.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i2">Our Story</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">03</span><a href="the-swamp.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i3">The Swamp</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:#fde680; font-weight:700;">04</span><a href="disclosure.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; color:#ffffff; text-decoration:none; font-size:34px; padding:6px 0; display:block; font-style:italic;">What is Full Disclosure?</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">05</span><a href="for-husbands.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i4">For Husbands</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">06</span><a href="for-wives.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i5">For Wives</a></li>
+        <li style="display:flex; align-items:baseline; gap:26px;"><span style="font-family:Karla,Karla Fallback,sans-serif; font-size:12px; letter-spacing:0.24em; color:rgba(253,230,128,0.55); font-weight:700;">07</span><a href="begin.html" style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; color:rgba(255,255,255,0.78); text-decoration:none; font-size:34px; padding:6px 0; display:block;" class="i6">Begin</a></li>
       </ul>
     </nav>
 
   <aside data-m="rail" style="position:fixed; top:0; left:0; width:76px; height:100dvh; background:#027d9f; z-index:900; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:26px 0; box-sizing:border-box; overflow:hidden; gap:14px;">
-    <span style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-size:22px; font-weight:600; letter-spacing:0.1em; color:#ffffff;">C</span>
+    <span style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-size:22px; font-weight:600; letter-spacing:0.1em; color:#ffffff;">C</span>
     <span style="writing-mode:vertical-rl; transform:rotate(180deg); font-size:11px; text-transform:uppercase; letter-spacing:0.32em; color:#ffffff; font-weight:700; min-height:0; overflow:hidden; flex:0 1 auto;">Created To Be Free</span>
     <span style="width:20px; height:2px; background:#fde680; display:block; flex:0 0 auto;"></span>
   </aside>
@@ -154,15 +159,15 @@ a { color:#026a88; } a:hover { color:#01566e; }
         <div data-m="mark" style="position:absolute; left:60px; top:96px; display:flex; flex-direction:column; align-items:center; gap:14px; pointer-events:none;">
           <span style="font-size:11px; letter-spacing:0.22em; color:#026a88; font-weight:700;">01</span>
           <span style="width:1px; height:28px; background:#dfe9ee; display:block;"></span>
-          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#014f66;">Definition</span>
+          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#014f66;">Definition</span>
         </div>
           <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.3em; color:#8f5a2b; font-weight:700; margin:0 0 18px;">Three Words</p>
           <h2 style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-weight:500; font-size:clamp(32px,3.5vw,46px); line-height:1.1; color:#494949; margin:0 0 28px; max-width:19ch; text-wrap:balance;">What does that actually mean?</h2>
           <p style="font-size:18px; line-height:1.8; color:#6f6461; margin:0 0 44px; max-width:66ch;">Taken separately, we all know the individual words. But when those three words get used together, they become an enigma.</p>
           <div data-m="g3" style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:36px;">
-            <div style="border-top:2px solid #0282a7; padding-top:22px;"><h4 style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-size:30px; font-weight:600; color:#0282a7; margin:0 0 10px;">&ldquo;Full&rdquo;</h4><p style="font-size:16px; line-height:1.7; color:#6f6461; margin:0;">means total, complete, nothing left out.</p></div>
-            <div style="border-top:2px solid #56c6da; padding-top:22px;"><h4 style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-size:30px; font-weight:600; color:#0282a7; margin:0 0 10px;">&ldquo;Therapeutic&rdquo;</h4><p style="font-size:16px; line-height:1.7; color:#6f6461; margin:0;">means clinical, professional, studied.</p></div>
-            <div style="border-top:2px solid #f1c298; padding-top:22px;"><h4 style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-size:30px; font-weight:600; color:#0282a7; margin:0 0 10px;">&ldquo;Disclosure&rdquo;</h4><p style="font-size:16px; line-height:1.7; color:#6f6461; margin:0;">means to expose, reveal or to share.</p></div>
+            <div style="border-top:2px solid #0282a7; padding-top:22px;"><h4 style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-size:30px; font-weight:600; color:#0282a7; margin:0 0 10px;">&ldquo;Full&rdquo;</h4><p style="font-size:16px; line-height:1.7; color:#6f6461; margin:0;">means total, complete, nothing left out.</p></div>
+            <div style="border-top:2px solid #56c6da; padding-top:22px;"><h4 style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-size:30px; font-weight:600; color:#0282a7; margin:0 0 10px;">&ldquo;Therapeutic&rdquo;</h4><p style="font-size:16px; line-height:1.7; color:#6f6461; margin:0;">means clinical, professional, studied.</p></div>
+            <div style="border-top:2px solid #f1c298; padding-top:22px;"><h4 style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-size:30px; font-weight:600; color:#0282a7; margin:0 0 10px;">&ldquo;Disclosure&rdquo;</h4><p style="font-size:16px; line-height:1.7; color:#6f6461; margin:0;">means to expose, reveal or to share.</p></div>
           </div>
       </div>
     </section>
@@ -172,11 +177,11 @@ a { color:#026a88; } a:hover { color:#01566e; }
         <div data-m="mark" style="position:absolute; left:60px; top:96px; display:flex; flex-direction:column; align-items:center; gap:14px; pointer-events:none;">
           <span style="font-size:11px; letter-spacing:0.22em; color:#026a88; font-weight:700;">02</span>
           <span style="width:1px; height:28px; background:#dfe9ee; display:block;"></span>
-          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#5c5250;">The Edge</span>
+          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#5c5250;">The Edge</span>
         </div>
           <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.3em; color:#8f5a2b; font-weight:700; margin:0 0 18px;">Why It&rsquo;s Daunting</p>
           <h2 style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-weight:500; font-size:clamp(32px,3.5vw,46px); line-height:1.1; color:#494949; margin:0 0 10px; max-width:19ch; text-wrap:balance;">They&rsquo;re daunting. You feel vulnerable.</h2>
-          <p style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-style:italic; font-size:21px; color:#6f6480; margin:0 0 28px; max-width:34ch;">It can feel like you&rsquo;re on the edge of a precipice.</p>
+          <p style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-style:italic; font-size:21px; color:#6f6480; margin:0 0 28px; max-width:34ch;">It can feel like you&rsquo;re on the edge of a precipice.</p>
           <p style="font-size:18px; line-height:1.8; color:#6f6461; margin:0; max-width:66ch;">The very thought of sharing the stuff in your past is horrendous and terrifying. And yet, your wife, your counselor, therapist or group leader is gently prodding you toward it. It can feel like you&rsquo;re on the edge of a precipice and any second your feet could slip and you fall headlong into the chasm.</p>
       </div>
     </section>
@@ -186,11 +191,11 @@ a { color:#026a88; } a:hover { color:#01566e; }
         <div data-m="mark" style="position:absolute; left:60px; top:96px; display:flex; flex-direction:column; align-items:center; gap:14px; pointer-events:none;">
           <span style="font-size:11px; letter-spacing:0.22em; color:#026a88; font-weight:700;">03</span>
           <span style="width:1px; height:28px; background:#dfe9ee; display:block;"></span>
-          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#014f66;">My Story</span>
+          <span style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-size:46px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; opacity:0.72; color:#014f66;">My Story</span>
         </div>
           <p style="font-size:12px; text-transform:uppercase; letter-spacing:0.3em; color:#8f5a2b; font-weight:700; margin:0 0 18px;">My Own Disclosure</p>
           <h2 style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-weight:500; font-size:clamp(32px,3.5vw,46px); line-height:1.1; color:#494949; margin:0 0 10px; max-width:19ch; text-wrap:balance;">I get it. I&rsquo;ve been there. I&rsquo;ve done it.</h2>
-          <p style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-style:italic; font-size:21px; color:#6f6480; margin:0 0 28px; max-width:34ch;">Mine was a train wreck.</p>
+          <p style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-style:italic; font-size:21px; color:#6f6480; margin:0 0 28px; max-width:34ch;">Mine was a train wreck.</p>
           <div style="display:flex; flex-direction:column; gap:18px; max-width:66ch;">
             <p style="font-size:18px; line-height:1.8; color:#6f6461; margin:0;">My counselor, who I hold in high regard, said I needed to do it. He said I needed to write my story. He prodded and helped me with it. But he didn&rsquo;t know that I needed a Guide and more importantly, Lynn (my Beloved) needed a Guide.</p>
             <p style="font-size:18px; line-height:1.8; color:#6f6461; margin:0;">I wrote it, read it to him and then took it home and read it to Lynn with no help and no support. By the Grace of God and Lynn&rsquo;s incredible strength, we got through it.</p>
@@ -202,7 +207,7 @@ a { color:#026a88; } a:hover { color:#01566e; }
 
     <section style="position:relative; background:#014f66; overflow:hidden;">
       <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:88px 60px 88px 168px; min-height:460px; box-sizing:border-box;">
-        <span data-m="marklabel" style="position:absolute; left:60px; top:88px; writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-size:32px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; opacity:0.6; color:#fde680;">The Why</span>
+        <span data-m="marklabel" style="position:absolute; left:60px; top:88px; writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-size:32px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; opacity:0.6; color:#fde680;">The Why</span>
         <h2 style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-weight:500; font-size:clamp(34px,3.9vw,52px); line-height:1.06; color:#ffffff; margin:0 0 34px; max-width:22ch;"><em style="color:#fde680;">&ldquo;Why would I ever agree to this?&rdquo;</em></h2>
         <div style="display:flex; gap:14px; flex-wrap:wrap;">
           <a href="for-husbands.html" style="display:inline-block; padding:16px 34px; background:#fde680; color:#494949; text-decoration:none; font-size:16px; font-weight:700; transition:all 0.3s ease;" class="i8">For Husbands</a>
@@ -214,7 +219,7 @@ a { color:#026a88; } a:hover { color:#01566e; }
       <div data-m="wrap" style="max-width:1060px; margin:0 auto; padding:44px 60px 44px 168px;">
         <a href="for-husbands.html" data-m="tap" class="nx" style="display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; text-decoration:none; transition:all 0.3s ease;">
           <span style="font-size:11px; text-transform:uppercase; letter-spacing:0.26em; color:#8f5a2b; font-weight:700;">Next &middot; 5 of 7</span>
-          <span style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-size:28px; font-weight:600; color:#014f66;">For Husbands</span>
+          <span style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-size:28px; font-weight:600; color:#014f66;">For Husbands</span>
           <span style="font-size:17px; color:#6f6461;">&ldquo;Why would I ever agree to this?&rdquo;</span>
           <span style="color:#0282a7; font-size:19px; font-weight:700;">&rarr;</span>
         </a>
@@ -253,7 +258,7 @@ a { color:#026a88; } a:hover { color:#01566e; }
         </div>
         <div style="border-top:1px solid #e6eef2; margin-top:48px; padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
           <span style="font-size:14px; color:#767068;">&copy; 2026 Created To Be Free</span>
-          <span style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; font-style:italic; font-size:16px; color:#767068;">&ldquo;The truth will set you free.&rdquo; John 8:32</span>
+          <span style="font-family:Cormorant Garamond,Cormorant Fallback,Cormorant Fallback2,serif; line-height:1.211; font-style:italic; font-size:16px; color:#767068;">&ldquo;The truth will set you free.&rdquo; John 8:32</span>
         </div>
       </div>
     </footer>
